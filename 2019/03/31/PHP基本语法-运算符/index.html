@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第二章PHP基本语法——运算符（1）1.运算符    概述：运算符是对一个或者多个操作数（变量或者数值）执行某种运算的符号，也称操作符2.示例：! true       !是运算符 true是操作数        $a + $b    + 是运算符 $a，$b是操作数        true ? 1:0   ? 和 : 是运算符 true，1，0是操作数根据操作数的个数分为，一元运算符、二元运算符">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP基本语法-运算符">
+<meta property="og:url" content="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法-运算符/index.html">
+<meta property="og:site_name" content="XuChao">
+<meta property="og:description" content="第二章PHP基本语法——运算符（1）1.运算符    概述：运算符是对一个或者多个操作数（变量或者数值）执行某种运算的符号，也称操作符2.示例：! true       !是运算符 true是操作数        $a + $b    + 是运算符 $a，$b是操作数        true ? 1:0   ? 和 : 是运算符 true，1，0是操作数根据操作数的个数分为，一元运算符、二元运算符">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-31T10:55:35.593Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP基本语法-运算符">
+<meta name="twitter:description" content="第二章PHP基本语法——运算符（1）1.运算符    概述：运算符是对一个或者多个操作数（变量或者数值）执行某种运算的符号，也称操作符2.示例：! true       !是运算符 true是操作数        $a + $b    + 是运算符 $a，$b是操作数        true ? 1:0   ? 和 : 是运算符 true，1，0是操作数根据操作数的个数分为，一元运算符、二元运算符">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法-运算符/">
+
+
+
+
+
+  <title>PHP基本语法-运算符 | XuChao</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://xiaoblockhead.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XuChao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法-运算符/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP基本语法-运算符</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:52:56+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第二章PHP基本语法——运算符（1）<br>1.运算符<br>    概述：运算符是对一个或者多个操作数（变量或者数值）执行某种运算的符号，也称操作符<br>2.示例：! true       !是运算符 true是操作数<br>        $a + $b    + 是运算符 $a，$b是操作数<br>        true ? 1:0   ? 和 : 是运算符 true，1，0是操作数<br>根据操作数的个数分为，一元运算符、二元运算符、三元运算符<br>一些场合下在操作符的两边加上空格增加美观以及代码的可读性<br>3.算数运算符</p>
+<p>示例：<br>1)    + 加号<br>            $a=1;<br>            $b=2;<br>            $c=$a+$b;<br>            echo $c;<br>2)    – 减号<br>            第一个意思： 减号<br>                $a=10;<br>                $b=2;<br>                $c=$a-$b;<br>                echo $c;<br>            第二个意思： 取反<br>                $a=1;<br>                $b=-$a;<br>                echo $b;//-1<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;//1<br>                注意：取反并不会影响到被取反变量本身的值!<br>3)    <em> 乘号<br>            $a=4;<br>            $b=2;<br>            $c=$a</em>$b;<br>            echo $c;<br>4)    / 除号<br>            $a=10;<br>            $b=2;<br>            $c=$a/$b;<br>            echo $c;<br>5)    % 取模<br>            $a=12;<br>            $b=2;<br>            echo $a%$b;<br>6)    ++ 自增<br>        前++<br>                当在一个语句里面需要使用到被自增的变量的值的时候，前++会先执行自增,然后再返回自增之后的值！<br>                $a=10;<br>                echo ++$a;//11<br>        后++<br>                当在一个语句里面需要使用到被自增的变量的值的时候，后++会先返回变量的值然后再去执行自增<br>                $a=10;<br>                //++$a;//$a=$a+1;<br>                //$a++;//$a=$a+1;<br>                echo $a++;//echo $a;$a=$a+1;<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;//11<br>            注意：<br>            $a=10;<br>            ++$a;//这种情况不需要用到自增变量值的时候，和后++无区别<br>            echo $a;<br>7)    – 自减<br>        前–<br>                $a=10;<br>                //$a–;//$a=$a-1; 和–$a没区别;<br>                echo –$a;//$a=$a-1;echo $a;<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;<br>                后–<br>                $a=10;<br>                //$a–;//$a=$a-1; 和–$a没区别;<br>                echo $a–;//echo $a;$a=$a-1;<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;<br>        注意：自增或者自减是对变量而言的！<br>第二章PHP基本语法——运算符（2）<br>1.字符运算符<br>    PHP中的字符运算符只有一个英文的句号（.） 也叫连接运算符<br>示例：$a=’上海’;  $b=’链接运算符测试’; echo $a.$b;<br>2.赋值运算符<br>    注意：赋值运算符整个语句是有值的，所以整个语句就是一个表达式，所以可以写为$a=$b=1;<br>    =   +=  -+  <em>=  /=  %=  .=<br>二元运算符，左边的操作数必须是变量，右边可以是一个表达式，也可以是一个值，一个变量等等<br>    作用：将右边表达式的值赋给左边的变量。<br>    示例：<br>    1）=<br>            把右边的值赋给左边的变量<br>            $a=1;<br>            二元运算符（2个操作数）<br>            表达式是 PHP 最重要的基石。在 PHP 中，几乎所写的任何东西都是一个表达式。简单但却最精确的定义一个表达式的方式就是“任何有值的东西”。<br>    2）+=<br>            $a=1;<br>            $b=2;<br>            $a+=$b;//$a=$a+$b;<br>            echo $a;<br>    3）-=<br>            $a=2;<br>            $b=1;<br>            $a-=$b;//$a=$a-$b<br>            echo $a;
+</em>=  /=  %=  .=以此类推！<br>第二章PHP基本语法——运算符（3）<br>1.比较运算符<br>概念：<br>    对操作数（按照比较运算符的要求,规则）进行比较，如果比较出的结果满足比较运算符的要求那么结果就是true(真，成立，满足),否则就是false（假，不成立,不满足）<br>2.PHP中规定：<br>    使用echo输出布尔类型值的时候，echo true;它在页面中会输出1，echo false;它会在页面中什么都不输出<br>    在测试的过程中如果需要输出布尔类型值的时候我们最好使用var_dump()来输出更明了的结果！<br>3.示例：<br>1) == 值是否相等<br>        如果值相等则就是 true（真，成立）<br>        如果值不相等那么就是false（假，不成立）<br>        $a=1;<br>        $b=1;<br>        var_dump($a==$b);//true<br>    2) === 全等（值要相等，类型也要相等）<br>        如果两边操作数的值全等那么就是true否则就是false<br>        $a=11;<br>        $b=’11’;<br>        //var_dump($a==$b);//true<br>        var_dump($a===$b);//false<br>    3) != 值是否不相等<br>        如果两边操作数的值不相等那么就是true，否则就是false<br>        $a=1;<br>        $b=11;<br>        var_dump($a!=$b);//true<br>4) &lt;&gt; 同上<br>    5) !== 不全等<br>        如果两边的操作数不全等那么就是true，否则就是false<br>        /<em><br>        $a=1111;<br>        $b=2;<br>        var_dump($a!=$b);//true<br>        var_dump($a!==$b);//true
+        </em>/<br>        $a=11;<br>        $b=’11’;<br>        var_dump($a!=$b);//false<br>        var_dump($a!==$b);//true,$a不全等于$b<br>6) &lt; 小于<br>        比较两边操作数的值，前面的是否小与后面的<br>        $a=1;<br>        $b=1;<br>        var_dump($a&lt;$b);//false,$a小与$b这句话正确还是错误<br>7) &gt; 大于<br>        $a=10;<br>        $b=1;<br>        var_dump($a&gt;$b);<br>8) &lt;= 小于等于<br>        $a=1;<br>        $b=1;<br>        var_dump($a&lt;=$b);//$a小与等于$b就是true,否则就是false<br>9) &gt;= 大于等于<br>        $a=2;<br>        $b=1;<br>        var_dump($a&gt;=$b);//true<br>第二章PHP基本语法——运算符（4）<br>1.逻辑运算符<br>概念：对表达式进行逻辑运算，运算出的结果是布尔类型的值（true,false）<br>2.要求：    参与逻辑运算的表达式的值是布尔类型的值，如果不是布尔类型的值会被PHP自动转换成布尔类型的值，然后再参与运算！<br>3.示例：<br>    1)逻辑与<br>        and 或者 &amp;&amp;<br>运算规则：左右两边的表达式的值都为true的时候，运算的结果就是true，否则只要其中任意一个为false，运算的结果就是false;<br>      现实举例： true 及格    false 不及格<br>                 左右两边的表达式就是我们要考试的科目;<br>      要求：当语文和数学都及格的时候那么，最终的结果才能够通过(true),否则就是不通过(false)<br>        $a=false;//语文<br>        $b=true;//数学<br>        var_dump($a &amp;&amp; $b);<br>        中间隐含一个问题：“短路”,运算符的优先级的问题！如果自己不能确定输出的布尔类型的值，可通过强制转换成布尔型来印证自己的猜想，var_dump((bool)想转换);<br>    2)逻辑或<br>        or 或者 ||<br>      运算规则：左右两边的表达式的值有一个为true，运算的结果就是true    ，只有当两边的值都是false的时候，结果才会是false<br>        $a=false;//语文<br>        $b=true;//数学<br>        var_dump($a || $b);<br>        中间隐含一个问题：“短路”,运算符的优先级的问题！<br>        PHP程序语言的设计者认为，只要有逻辑运算符（逻辑与，逻辑或）那么运算结果就是一个true或者false，整个运行的过程就不重要了，当程序执行到false时，说明已经不满足条件，就不会继续执行下去，所以会发生短路的问题。短路问题较少，就算遇到一般也不会有影响<br>      现实举例：<br>      要求：当语文和数学有一门及格那么最终的结果就是通过true    ，中间隐含一个问题：“短路”,运算符的优先级的问题！<br>    3)逻辑异或<br>            xor<br>          运算规则：左右两边的表达式的值不一样的时候结果就是true,如果一样那么运算的结果就是false<br>          $a=false;<br>          $b=false;<br>          var_dump($a xor $b);<br>    4)逻辑非<br>            !<br>          运算规则：将原来表达式的值否定掉，原来是true，那么结果就是false，原来是false，那么结果就是true<br>第二章PHP基本语法——运算符（5）<br>1.位运算符<br>    位运算符用于对操作数中的每一个二进制位进行运算，由于PHP主要用于网站开发方面，所以位运算符在PHP中使用较少，暂且跳过。需要时可查询PHP手册（ <a href="http://www.php.net" target="_blank" rel="noopener">www.php.net</a> ）<br>2.其他运算符<br>        1)? :<br>            三元运算<br>            格式：表达式1 ? 表达式2 : 表达式3;<br>                如果表达式1的值为true,那么就执行表达式2,否则那么就执行表达式3<br>                $a=false ? 10 : 20;<br>                echo $a;//20<br>        2)<code></code><br>            可以把系统的命令放在里面执行！<br>            比较少用，涉及到跨平台:<br>                $a=<code>ipconfig</code>;<br>                $b=<code>ifconfig</code>;<br>                var_dump($b);<br>        3)@<br>            屏蔽表达式可能发生错误！注意要用在表达式的前面<br>            echo @$a;<br>            当然，实际在哪些地方应用，用到就知道了！<br>        4)=&gt;     数组<br>        5)-&gt;     对象<br>        6)instanceof    面向对象<br>3.运算符的优先级<br>        优先级的概念：<br>            谁的优先级别高就先算谁！<br>        结合方向：<br>            规定了从那个方向开始算的问题！<br>            优先级这个概念只要知道一些基本的常用的就可以了，因为我们在实际开发中几乎没有那么需要写非常复杂的表达式， 详细信息访问（<a href="http://www.php.net" target="_blank" rel="noopener">www.php.net</a> ）查询相关内容。。<br>            让我们去考虑先算谁，后算谁的问题！<br>        优先级归纳:<br>            1)[无]递增递减<br>            2)[右]逻辑非!<br>            3)[左]乘，除，取余<br>            4)[左]加，减，字符串连接符<br>            5)[无]包含大于号或者小于号的比较运算符<br>            6)[无]不包含大于号或者小于号的比较运算符<br>            7)[左]逻辑与&amp;&amp;<br>            8)[左]逻辑或||<br>            9)[左]? :<br>            10)[右]赋值运算符<br>            11)[左 ]逻辑异或xor<br>        圆括号的作用：<br>            用圆括号可以将表达式里面的某一块看成一个整体！<br>        *使用括号可以增强代码的可读性。<br>            哪怕有的地方不需要加括号你也可以加上以增加可读性！</p>
+
+      
+    </div>
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文 <i class="fa fa-paw"></i> 结束-------------</div>
+    
+</div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/31/PHP基本语法—常量/" rel="next" title="PHP基本语法—常量">
+                <i class="fa fa-chevron-left"></i> PHP基本语法—常量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/31/流程控制/" rel="prev" title="流程控制">
+                流程控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">XiaoBlockhead</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tages/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoBlockhead</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

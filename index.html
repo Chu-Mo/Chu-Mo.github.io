@@ -231,6 +231,1151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/数组/" itemprop="url">数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:59:35+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第五章 数组（1）理解数组与创建数组<br>1、数组概念，数组类型图解</p>
+<p>2、数组创建<br>    PHP中创建数组非常灵活，与其他许多编程语言不同的是PHP不需要在创建数组时，指定数组的大小，甚至不需要在使用数组之前声明，也可以在同一个数组中存储任何类型的数据，直接为数组元素赋值即可创建数组，使用arrary（）语言结构创建数组。<br>    方法一、直接为数组元素赋值创建数组<br>        $变量名称[索引值]=数据内容<br>        变量名称[]=数据;//不写索引值默认是 索引数组，从0开始<br>        索引值可以是整数也可以是字符串，也可不写（默认为索引数组）<br>    方法二、使用arrary（）语言结构创建数组<br>        $变量名称=array(<br>            索引值=&gt;数据,<br>            ……….<br>            );<br>注意：输出数组时需要使用print_r（）函数来输出数组的具体内容。<br>    数据里面还可放数组类型的数据，同一个数组中存储任何类型的数据<br>    多维数组：<br>        访问数值的方法<br>        变量名称[索引值][索引值]….<br>3、数组分类<br>    1）索引数组<br>        索引值为整数的数组<br>    2）关联数组<br>        索引值为字符串的数组，使用字符串作为索引，这使得编程更加人性化，在其他语言中非常少见，但是在PHP中会被大量使用，在开发过程中，使用起来极其方便。<br>第五章 数组（2）遍历数组<br>1.概念：<br>PHP中很少需要自己手动将大量的数据复制到数组变量中，而是通过调用其他函数返回结果集（这些结果集数据很多情况下都是数组类型），使用数组类型返回的目的是将多个相互关联的数据，组织在一起形成集合，以方便我们的批量处理的目的，所以我们实际工作中遍历数组的需求比较多。简单来说实现的功能就是每个都经历一遍。<br>2.示例：<br>1）for循环<br>count（数组 ）能实现返回数组里面数据个数的作用，还可以获取多维数组的个数<br>        count（数组 ，数值）可以查询多维数组的所有数值个数<br>        用的比较少，因为有缺陷<br>    2）foreach语句来实现遍历数组的目的<br>        foreach(数组变量 as 变量1){<br>            //每次循环执行的语句<br>            变量1代表当前正在经历（访问）的数据<br>        }<br>        foreach(数组变量 as 变量1=&gt;变量2){<br>            //每次循环执行的语句<br>            变量1代表当前正在经历（访问）的数据的索引值<br>            变量2代表当前正在经历（访问）的数据<br>        }<br>第五章 数组（3）预定义超全局数组<br>1、预定义超全局数组变量<br>    1）$GLOBALS<br>    2）$_SERVER<br>        服务器变量，不同的web服务器可能会有一些不同的内容<br>    3）$_GET<br>        获取HTTP GET方式传递的参数比如url或者表单GET方式传过来的参数<br>    4）$_POST<br>        获取HTTP POST方式传递的参数比如表单POST方式传过来的参数<br>    5）$_FILES<br>        HTTP文件上传变量<br>    6）$_COOKIE<br>    7）$_SESSION<br>    8）$_REQUEST<br>        包含了$_GET，$_POST和$_COOKIE中的全部内容<br>    9）$_ENV<br>        环境变量，和PHP所运行的环境有关，若没有数据可能与phpini配置项variables_order配置项有关<br>PHP中的许多预定义变量都是“超全局的”，这意味着他们在一个脚本的全部作用域中都可用。在函数或方法中无需执行global$variable；就可以访问他们。<br>2、预定义超全局数组变量<br>    已经定义好了（存在）的变量(存放的数据的类型是数组)。<br>    超全局：超级全局变量，作用域（有效区域）！<br>    传递数据（提交数据）给服务器端主要两种方式<br>    1）get方式<br>        比如：<br>        ?参数名=参数值&amp;参数名=参数值……<br>        <a href="http://localhost/demo5_3/index.php?参数名=参数值" target="_blank" rel="noopener">http://localhost/demo5_3/index.php?参数名=参数值</a><br>        在服务器端（请求的php文件这边）可以通过$_GET来获取到<br>        $_GET索引值为参数名，索引值对应的数据就是参数值<br>注意：优点是比较方便，缺点是明文的不安全<br>    2）post方式<br>        比如表单 post发送过来的！<br>        可以通过$_POST来获取到!、<br>第五章数组 （4）处理数组的相关函数<br>挑几个学一下，并不是这几个重要其他的不重要，而通过这几个的学习让大家学会怎么通过查手册来使用数组相关的函数！<br>    1)array_count_values<br>        $array = array(1, “hello”, 1, “world”, “hello”);<br>        $arr=array_count_values($array);//函数返回数组类型的数据<br>        print_r($array);//原来的数组不会受到任何影响<br>    2)array_key_exists<br>        $search_array = array(‘first’ =&gt; 1, ‘second’ =&gt; 4);<br>        var_dump(array_key_exists(‘second’,$search_array));<br>    3)array_search<br>        $array = array(0 =&gt; ‘blue’, 1 =&gt; ‘red’, 2 =&gt; ‘green’, 3 =&gt; ‘red’,4=&gt;15);<br>        var_dump(array_search(‘15’, $array,true));<br>    4)count<br>        $array = array(0 =&gt; ‘blue’, 1 =&gt; ‘red’, 2 =&gt; ‘green’, 3 =&gt; ‘red’,4=&gt;15);<br>        var_dump(count($array));<br>    5)in_array<br>        $os = array(“Mac”, “NT”, “Irix”, “Linux”);<br>        var_dump(in_array(‘Mac’, $os));<br>    6)list<br>        $arr=array(60,80,100);<br>        list($sunshengli,$xiaohong,$xiaoming)=array(60,80,100);<br>        echo $sunshengli;<br>    7)asort<br>        $students=array(<br>            ‘sunshengli’=&gt;60,<br>            ‘lilei’=&gt;80,<br>            ‘hanmeimei’=&gt;100,<br>            ‘zhangsan’=&gt;90<br>        );<br>        asort($students);<br>        print_r($students);<br>        直接对数组里面的数据进行排序，第二个参数<br>            SORT_REGULAR - 正常比较单元（不改变类型）<br>            SORT_NUMERIC - 单元被作为数字来比较<br>            SORT_STRING - 单元被作为字符串来比较<br>            SORT_LOCALE_STRING - 根据当前的区域（locale）设置来把单元当作字符串比较。<br>    8)array_filter<br>        function odd($var)<br>        {<br>            return($var % 2 == 1);<br>        }<br>        function even($var)<br>        {<br>            return($var % 2 == 0);<br>        }<br>        $array1 = array(“a”=&gt;1, “b”=&gt;2, “c”=&gt;3, “d”=&gt;4, “e”=&gt;5);<br>        $array2 = array(6, 7, 8, 9, 10, 11, 12);<br>        echo “Odd :\n”;<br>        print_r(array_filter($array1, “odd”));<br>        echo “Even:\n”;<br>        print_r(array_filter($array2, “even”));</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/函数—函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/函数—函数/" itemprop="url">函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:57:41+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第四章 函数（一）自定义函数<br>函数的概念：<br>从功能上讲函数你可以把她看作是现实生活中的一个人或者一个公司里面的一个部门，可以接受我们的指令为我们完成某项固定的工作。<br>使用函数的优点：<br>、提高程序的重要性<br>、提高软件的可维护性<br>、提高软件的开发效率<br>、等等……<br>一、自定义函数<br>1.函数的定义：<br>    function 函数名（[参数1，参数2，…参数n]）{<br>函数体；//任何有效的PHP代码都可以作为函数体使用，return表达式；//可以从函数中返回一个值，也可以不反回<br>}<br>注意：[]中的内容可以省略，函数名只能以字母、数字、下划线命名，且只能以字母、下划线开头。<br>2.函数的调用：<br>    不管是自己定义的函数还是系统提供的函数，如果函数不被调用就不会执行。<br>    调用：函数被调用后开始执行函数体中的代码，执行的过程是相对独立的，默认没有联系，互不干扰。执行完毕返回调用的位置继续向下执行，<br>    通过定义好的  函数名（）来调用定义好的函数<br>注意：在定义好的函数之前也可以通过代码调用已经定义好的函数，这是PHP的一个特性。<br>3.函数的参数：<br>    形式参数由零个、一个或者多个变量组成<br>    实际参数由零个、一个或者多个参数组成，每个参数都是一个表达式，用逗号分隔<br>注意：形式参数定义几个，实际参数的个数需要与之对应，实际参数可多写，但多写的实际参数并不会上传到形式参数，也不会影响程序运行的最终结果，但不能少写，少写时会报错。<br>4.函数的返回值：<br>    函数的返回值是将函数执行后的结果返回给调用者<br>    默认如果不写返回值（return）则函数的返回值为null，默认返回null<br>    return有两个作用，1是返回函数的值。 2是结束该函数的运行<br>第四章 函数（二）变量范围</p>
+<p>一、PHP变量的范围<br>1.局部变量<br>    局部变量也称为内部变量。局部变量是在函数内定义的，其作用域仅限于函数内部，离开该函数后在使用这种变量就是非法错误的！<br>    示例：<br>        function test(){<br>            $a=1;//局部变量$a，尽在这个函数内部有效<br>        }<br>        echo $a;<br>2.全局变量<br>    全局变量也称为外部变量，在函数的外部定义的，其作用域为从变量定义处开始，到本程序文件的末尾<br>    在PHP函数中无法直接使用全局变量，如需使用或必须使用global声明变量<br>    示例：<br>$i=10;//全局变量（外部变量）<br>        define(‘MY_NAME’,’上海’);<br>        function test(){<br>            echo MY_NAME;<br>        global $i;//声明$i为全局变量,然后再这个函数内部就可以使用$i<br>        echo $i;<br>        $a=1;<br>        }<br>        test();<br>3.静态变量</p>
+<p>静态变量的是指在函数内部定义变量的时候使用static关键字来定义变量<br>    特点：函数执行完毕之后变量不会立即消失，当再次调用函数时，静态变量保存的值依然存在，并且仅在第一次执行函数的时候会初始化值。<br>示例：<br>        function test(){<br>            static $a=10;//静态变量$a,初始化静态变量,尽在第一次调用的时候执行<br>            echo ++$a;//当第二次执行这个函数的时候$a这个变量依然存在并且里面的也值依然存在！<br>        }<br>        test();<br>        echo ‘&lt;换行br /&gt;’;<br>        test();<br>        echo ‘&lt;换行br /&gt;’;<br>        test();<br>        echo ‘&lt;换行br /&gt;’;<br>        test();<br>        echo ‘&lt;换行br /&gt;’;<br>        test();<br>        echo ‘&lt;换行br /&gt;’;<br>        test();<br>        echo ‘&lt;换行br /&gt;’;<br>        test();<br>第四章 函数（三）参数传递可变函数<br>一、参数的传递：<br>    1.按值传递参数<br>    默认的，我们在传递参数时默认使用的就是这个方式。<br>    对形式参数的操作，根本不是影响到实际参数(变量)的值，两者相当于没有联系!<br>    2.按引用传递参数<br>    按引用传递参数，相当于形式参数和实际参数指的是同一个人，只是名字不一样，对于形式参数的操作会直接影响到实际参数（变量）;<br>    示例：<br>        function test(&amp;$a){<br>echo ++$a;<br>}<br>$i=10;<br>test($i);<br>echo’&lt;换行br/&gt;’.$i;<br>    3.函数的默认参数<br>        可以给形式参数设置默认值，设置方法很简单直接赋值即可！<br>        给形式参数加默认值的时候是从右往左加的，右边的必须有，才能够给左边的加！<br>    4.可变长度参数列表<br>        PHP提供给我们的，可以直接使用<br>        func_get_args();<br>            function test(){<br>var_dump(func_get_args());//数组<br>}<br>test(21.32.55.456.’演示取值’)；<br>        func_get_arg();<br>            function test(){<br>var_dump(func_get_arg(1));// func_get_arg(1)，调用这个函数时可以传入一个值，表示获取第几个实际参数（从零开始）<br>}<br>test(21.32.55.456.’演示取值’)；<br>        func_num_args();<br>            function test(){<br>var_dump(func_num_args());//返回传入所在自定义函数的参数的个数<br>}<br>test(21.32.55.456.’演示取值’)；<br>        这三个函数可以使用在我们的自定义函数内部，能够返回给我们一些关于参数的信息!<br>二、可变函数（变量函数）<br>    概念：如果一个变量名后有括号，PHP将寻找与变量的值同名的函数，并且尝试执行，这样就可以将函数的名称赋给变量，在程序中使用变量名并在后面加上圆括号即可执行对应的函数。<br>    示例：<br>        function test(){<br>echo’ 我是test函数’；<br>}<br>$a=’test’;//把函数名字加上引号，赋值给变量即可<br>$a();/test();<br>        直接把函数赋值给变量<br>        可变函数不能用于例如 echo，print，unset()，isset()，empty()，include，require 以及类似的语言结构。需要使用自己的包装函数来将这些结构用作可变函数。<br>第四章 函数（四）递归函数<br>1.递归函数<br>    递归函数即在函数内部自己调用自己的函数<br>1)函数在被调用的执行过程中会在内存里面分配空间用于存储临时数据，那么函数在执行过程中默认之间时没有联系的（除了静态变量，按引用传，全局变量）。里面的变量默认都是局部变量，相互之间没有影响！<br>    2)递归函数，在函数的内部需要有适时结束函数运行的条件！<br>3)示例图：</p>
+<p>第四章 函数（五）内部（内置）函数<br>1.内部（内置）函数<br>PHP提供给我我们许多现成的函数或者结构，<br>比如：<br>echo（）<br>inclued（）<br>include_once()<br>require()<br>require_once()<br>我们可以在实际的开发中直接使用,上面这些可以省略括号使用，严格意义上讲不是函数，所以这些不可以赋值给另外的变量，当然不管是不是函数都不是重点，对于实际开发没有什么影响，重点是知道这些能做什么工作。<br>    还有一些函数需要开启特定地 PHP 扩展模块，否则在使用它们的时候就会得到一个致命的“未定义函数”错误。<br>    一些常用的内置函数或者扩展的函数，在后面会陆陆续续的学习到，一些不太常用的可能我们没有办法全部讲到，但是你使用函数是用来完成功能的，说白了，你有这样的需求，才会去找对应的函数！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/流程控制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/流程控制/" itemprop="url">流程控制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:56:17+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第三章流程控制<br>流程控制：对PHP程序的执行过程进行控制，PHP有哪些手段对程序执行过程进行控制。<br>一、顺序执行<br>顺序执行非常简单，就是从上往下执行即可。对执行过程没有控制<br>二、分支执行<br>    顺序执行虽然能解决计算，输出等问题，但是执行太过死板，无法完全满足我们的实际开发需要！所以我们需要引入分支执行，分支执行可以根据条件是否满足来选择执行某些代码，PHP的分支执行主要通过两种语句（if， swich）来实现。<br>1.if语句：我们if语句的表达式所控制的代码、最好用花括号括起来，哪怕就是一条一句也是用花括号。<br>        1）单向条件<br>        If（表达式）语句；表达式的值为true就会执行后面的语句，否则不执行<br>        注意：通过复合语句（代码块），if语句可以控制执行多条语句，代码块是用一对{花括号}括起来的多条语句。花括号外可不用分号结尾，括号内可写多条语句但是需要用分号结尾。</p>
+<p>$pass=60;<br>            $a=40;<br>            if($a&gt;=$pass){<br>            echo ‘恭喜，考试通过’;<br>            echo ‘dwqdwqdq’;<br>            //…….各种其他语句！<br>            }<br>            echo ‘代码执行结束！’;<br>2）双向条件/if双向语句（if    else）<br>            $pass=60;<br>            $a=40;<br>            if($a&gt;=$pass){<br>            echo ‘恭喜你！考试通过啦！’;<br>            //…….<br>            }else{<br>            echo ‘很遗憾，您的科目没有通过！’;<br>            //…….<br>            }<br>3)多向条件（if   elseif   elseif   else）<br>            $a=84;<br>            $grade1=60;//低于60不及格<br>            $grade2=75;//及格<br>            $grade3=85;//良好<br>            if($a&lt;$grade1){<br>            echo ‘不及格’;<br>            }elseif($a&lt;$grade2){<br>            echo ‘童鞋你及格了’;<br>            }elseif($a&lt;$grade3){<br>            echo ‘良好！’;<br>            }else{<br>            echo ‘优秀’;<br>            }<br>2.switch语句<br>1）语句格式：<br>    switch（表达式）{<br>case值1：//case相当于==，1是对比时的值<br>语句块1；<br>break；//相当于跳出打断的意思，当缺少break语句时，一旦匹配上就不会再比较，会直接输出剩下的语句。<br>case值2：<br>语句块2；<br>break；<br>……<br>default：//相当于默认<br>语句块n<br>        }<br>当所有值都不匹配时，默认执行default语句<br>    3.注意点：<br>            1)表达式的值最好是整形或者字符串！<br>            2)不要忘记break语句！来跳出switch语句！每个case语句后面都加上break<br>            3)如果某个case语句后面并没有接语句块，那么就说明这个语句块的内容是同下！<br>            4)case后面的语句块是不需要{}括起来的q</p>
+<p>三、循环执行：<br>    概述：计算机最擅长的功能之一就是按照规定条件，重复执行某些操作，这是程序设计中最能发挥计算机特长的程序结果。<br>    1.while语句<br>        while（表达式）{<br>        各种语句…<br>}<br>注意：死循环时会导致无法显示，界面卡主。<br>        当表达式的值为true，那么就执行下面的语句块，当语句块执行结束之后，继续返回上面来判断表达式的值是true还是false，如果还是true那么就继续执行语句块，直到这个表达式的值为false，那么这个while语句就执行结束了。<br>        示例：<br>            $i=0;<br>            while($i&lt;10){<br>            echo $i++.’&lt;换行br /&gt;’;<br>            }<br>            echo ‘执行结束了！’;<br>2.do…while语句<br>            do{<br>            各种语句<br>            }while(表达式);<br>            与while语句区别就是，do while语句至少会执行一次！<br>        3.for语句<br>            1）for(表达式a;表达式b;表达式c){<br>            各种语句<br>            }<br>            表达式a:会放一些初始化话的语句,$i=0,放多个表达式,中间用,隔开<br>            表达式b：会放一些用来判断true或者false的表达式！，也可以放多个表达式，中间用,隔开<br>            表达c：会放一些对初始化的变量进行自增的语句！放多个表达式,中间用,隔开<br>            2）执行顺序：<br>表达式a<br>            表达式b 如果是true<br>            语句块<br>            表达式c<br>            表达式b<br>3）示例：<br>for($i=0;$i&lt;10;$i++){<br>echo”执行到第{$i}遍了&lt;换行br/&gt;”;<br>}<br>四、特殊的流程控制语句<br>    1.break语句<br>        作用：用于switch语句，for，while，do…while，foreach，用于中断这些语句。<br>         后面可以接上一个数字来表示跳出几层循环！默认不加就是跳出当前循环语句！<br>    2.continue语句<br>        作用：只能用在循环语句，跳出本次循环，并不是结束整个循环语句！<br>    3.exit()语句<br>        作用：结束当前整个程序的执行！<br>        die()</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法-运算符/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/PHP基本语法-运算符/" itemprop="url">PHP基本语法-运算符</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:52:56+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第二章PHP基本语法——运算符（1）<br>1.运算符<br>    概述：运算符是对一个或者多个操作数（变量或者数值）执行某种运算的符号，也称操作符<br>2.示例：! true       !是运算符 true是操作数<br>        $a + $b    + 是运算符 $a，$b是操作数<br>        true ? 1:0   ? 和 : 是运算符 true，1，0是操作数<br>根据操作数的个数分为，一元运算符、二元运算符、三元运算符<br>一些场合下在操作符的两边加上空格增加美观以及代码的可读性<br>3.算数运算符</p>
+<p>示例：<br>1)    + 加号<br>            $a=1;<br>            $b=2;<br>            $c=$a+$b;<br>            echo $c;<br>2)    – 减号<br>            第一个意思： 减号<br>                $a=10;<br>                $b=2;<br>                $c=$a-$b;<br>                echo $c;<br>            第二个意思： 取反<br>                $a=1;<br>                $b=-$a;<br>                echo $b;//-1<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;//1<br>                注意：取反并不会影响到被取反变量本身的值!<br>3)    <em> 乘号<br>            $a=4;<br>            $b=2;<br>            $c=$a</em>$b;<br>            echo $c;<br>4)    / 除号<br>            $a=10;<br>            $b=2;<br>            $c=$a/$b;<br>            echo $c;<br>5)    % 取模<br>            $a=12;<br>            $b=2;<br>            echo $a%$b;<br>6)    ++ 自增<br>        前++<br>                当在一个语句里面需要使用到被自增的变量的值的时候，前++会先执行自增,然后再返回自增之后的值！<br>                $a=10;<br>                echo ++$a;//11<br>        后++<br>                当在一个语句里面需要使用到被自增的变量的值的时候，后++会先返回变量的值然后再去执行自增<br>                $a=10;<br>                //++$a;//$a=$a+1;<br>                //$a++;//$a=$a+1;<br>                echo $a++;//echo $a;$a=$a+1;<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;//11<br>            注意：<br>            $a=10;<br>            ++$a;//这种情况不需要用到自增变量值的时候，和后++无区别<br>            echo $a;<br>7)    – 自减<br>        前–<br>                $a=10;<br>                //$a–;//$a=$a-1; 和–$a没区别;<br>                echo –$a;//$a=$a-1;echo $a;<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;<br>                后–<br>                $a=10;<br>                //$a–;//$a=$a-1; 和–$a没区别;<br>                echo $a–;//echo $a;$a=$a-1;<br>                echo ‘&lt;换行br /&gt;’;<br>                echo $a;<br>        注意：自增或者自减是对变量而言的！<br>第二章PHP基本语法——运算符（2）<br>1.字符运算符<br>    PHP中的字符运算符只有一个英文的句号（.） 也叫连接运算符<br>示例：$a=’上海’;  $b=’链接运算符测试’; echo $a.$b;<br>2.赋值运算符<br>    注意：赋值运算符整个语句是有值的，所以整个语句就是一个表达式，所以可以写为$a=$b=1;<br>    =   +=  -+  <em>=  /=  %=  .=<br>二元运算符，左边的操作数必须是变量，右边可以是一个表达式，也可以是一个值，一个变量等等<br>    作用：将右边表达式的值赋给左边的变量。<br>    示例：<br>    1）=<br>            把右边的值赋给左边的变量<br>            $a=1;<br>            二元运算符（2个操作数）<br>            表达式是 PHP 最重要的基石。在 PHP 中，几乎所写的任何东西都是一个表达式。简单但却最精确的定义一个表达式的方式就是“任何有值的东西”。<br>    2）+=<br>            $a=1;<br>            $b=2;<br>            $a+=$b;//$a=$a+$b;<br>            echo $a;<br>    3）-=<br>            $a=2;<br>            $b=1;<br>            $a-=$b;//$a=$a-$b<br>            echo $a;
+</em>=  /=  %=  .=以此类推！<br>第二章PHP基本语法——运算符（3）<br>1.比较运算符<br>概念：<br>    对操作数（按照比较运算符的要求,规则）进行比较，如果比较出的结果满足比较运算符的要求那么结果就是true(真，成立，满足),否则就是false（假，不成立,不满足）<br>2.PHP中规定：<br>    使用echo输出布尔类型值的时候，echo true;它在页面中会输出1，echo false;它会在页面中什么都不输出<br>    在测试的过程中如果需要输出布尔类型值的时候我们最好使用var_dump()来输出更明了的结果！<br>3.示例：<br>1) == 值是否相等<br>        如果值相等则就是 true（真，成立）<br>        如果值不相等那么就是false（假，不成立）<br>        $a=1;<br>        $b=1;<br>        var_dump($a==$b);//true<br>    2) === 全等（值要相等，类型也要相等）<br>        如果两边操作数的值全等那么就是true否则就是false<br>        $a=11;<br>        $b=’11’;<br>        //var_dump($a==$b);//true<br>        var_dump($a===$b);//false<br>    3) != 值是否不相等<br>        如果两边操作数的值不相等那么就是true，否则就是false<br>        $a=1;<br>        $b=11;<br>        var_dump($a!=$b);//true<br>4) &lt;&gt; 同上<br>    5) !== 不全等<br>        如果两边的操作数不全等那么就是true，否则就是false<br>        /<em><br>        $a=1111;<br>        $b=2;<br>        var_dump($a!=$b);//true<br>        var_dump($a!==$b);//true
+        </em>/<br>        $a=11;<br>        $b=’11’;<br>        var_dump($a!=$b);//false<br>        var_dump($a!==$b);//true,$a不全等于$b<br>6) &lt; 小于<br>        比较两边操作数的值，前面的是否小与后面的<br>        $a=1;<br>        $b=1;<br>        var_dump($a&lt;$b);//false,$a小与$b这句话正确还是错误<br>7) &gt; 大于<br>        $a=10;<br>        $b=1;<br>        var_dump($a&gt;$b);<br>8) &lt;= 小于等于<br>        $a=1;<br>        $b=1;<br>        var_dump($a&lt;=$b);//$a小与等于$b就是true,否则就是false<br>9) &gt;= 大于等于<br>        $a=2;<br>        $b=1;<br>        var_dump($a&gt;=$b);//true<br>第二章PHP基本语法——运算符（4）<br>1.逻辑运算符<br>概念：对表达式进行逻辑运算，运算出的结果是布尔类型的值（true,false）<br>2.要求：    参与逻辑运算的表达式的值是布尔类型的值，如果不是布尔类型的值会被PHP自动转换成布尔类型的值，然后再参与运算！<br>3.示例：<br>    1)逻辑与<br>        and 或者 &amp;&amp;<br>运算规则：左右两边的表达式的值都为true的时候，运算的结果就是true，否则只要其中任意一个为false，运算的结果就是false;<br>      现实举例： true 及格    false 不及格<br>                 左右两边的表达式就是我们要考试的科目;<br>      要求：当语文和数学都及格的时候那么，最终的结果才能够通过(true),否则就是不通过(false)<br>        $a=false;//语文<br>        $b=true;//数学<br>        var_dump($a &amp;&amp; $b);<br>        中间隐含一个问题：“短路”,运算符的优先级的问题！如果自己不能确定输出的布尔类型的值，可通过强制转换成布尔型来印证自己的猜想，var_dump((bool)想转换);<br>    2)逻辑或<br>        or 或者 ||<br>      运算规则：左右两边的表达式的值有一个为true，运算的结果就是true    ，只有当两边的值都是false的时候，结果才会是false<br>        $a=false;//语文<br>        $b=true;//数学<br>        var_dump($a || $b);<br>        中间隐含一个问题：“短路”,运算符的优先级的问题！<br>        PHP程序语言的设计者认为，只要有逻辑运算符（逻辑与，逻辑或）那么运算结果就是一个true或者false，整个运行的过程就不重要了，当程序执行到false时，说明已经不满足条件，就不会继续执行下去，所以会发生短路的问题。短路问题较少，就算遇到一般也不会有影响<br>      现实举例：<br>      要求：当语文和数学有一门及格那么最终的结果就是通过true    ，中间隐含一个问题：“短路”,运算符的优先级的问题！<br>    3)逻辑异或<br>            xor<br>          运算规则：左右两边的表达式的值不一样的时候结果就是true,如果一样那么运算的结果就是false<br>          $a=false;<br>          $b=false;<br>          var_dump($a xor $b);<br>    4)逻辑非<br>            !<br>          运算规则：将原来表达式的值否定掉，原来是true，那么结果就是false，原来是false，那么结果就是true<br>第二章PHP基本语法——运算符（5）<br>1.位运算符<br>    位运算符用于对操作数中的每一个二进制位进行运算，由于PHP主要用于网站开发方面，所以位运算符在PHP中使用较少，暂且跳过。需要时可查询PHP手册（ <a href="http://www.php.net" target="_blank" rel="noopener">www.php.net</a> ）<br>2.其他运算符<br>        1)? :<br>            三元运算<br>            格式：表达式1 ? 表达式2 : 表达式3;<br>                如果表达式1的值为true,那么就执行表达式2,否则那么就执行表达式3<br>                $a=false ? 10 : 20;<br>                echo $a;//20<br>        2)<code></code><br>            可以把系统的命令放在里面执行！<br>            比较少用，涉及到跨平台:<br>                $a=<code>ipconfig</code>;<br>                $b=<code>ifconfig</code>;<br>                var_dump($b);<br>        3)@<br>            屏蔽表达式可能发生错误！注意要用在表达式的前面<br>            echo @$a;<br>            当然，实际在哪些地方应用，用到就知道了！<br>        4)=&gt;     数组<br>        5)-&gt;     对象<br>        6)instanceof    面向对象<br>3.运算符的优先级<br>        优先级的概念：<br>            谁的优先级别高就先算谁！<br>        结合方向：<br>            规定了从那个方向开始算的问题！<br>            优先级这个概念只要知道一些基本的常用的就可以了，因为我们在实际开发中几乎没有那么需要写非常复杂的表达式， 详细信息访问（<a href="http://www.php.net" target="_blank" rel="noopener">www.php.net</a> ）查询相关内容。。<br>            让我们去考虑先算谁，后算谁的问题！<br>        优先级归纳:<br>            1)[无]递增递减<br>            2)[右]逻辑非!<br>            3)[左]乘，除，取余<br>            4)[左]加，减，字符串连接符<br>            5)[无]包含大于号或者小于号的比较运算符<br>            6)[无]不包含大于号或者小于号的比较运算符<br>            7)[左]逻辑与&amp;&amp;<br>            8)[左]逻辑或||<br>            9)[左]? :<br>            10)[右]赋值运算符<br>            11)[左 ]逻辑异或xor<br>        圆括号的作用：<br>            用圆括号可以将表达式里面的某一块看成一个整体！<br>        *使用括号可以增强代码的可读性。<br>            哪怕有的地方不需要加括号你也可以加上以增加可读性！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法—常量/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/PHP基本语法—常量/" itemprop="url">PHP基本语法—常量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:50:06+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第二章PHP基本语法——常量<br>1.概述：<br>    常量是一种简单值得标识符，如其名称所暗示的，在我们PHP脚本执行期间，一个常量一旦被定义，就不能被更改或者取消定义，常量的作用域是全局，常量只能包含bool，int，float，string类型的数据！<br>    常量是用于临时（只有在我们程序运行过程中才存在）存储值（数据）的容器。<br>2.定义和使用<br>define（常量名称,常量值）<br>    define（’常量名称’,常量值）或者 define（”常量名称”,常量值）使用常量名称时需要去掉（’’）或者（””）,当常量的值为字符串时，字符串中的内容需要用（’字符串’或者”字符串”）的形式，否则会报错。<br>    常量的命名与变量类似，也遵循PHP标识符的名称规则，按照惯例常量标识符总是大写的<br>注意：常量的命名和变量一样，只能包含字母数字下划线，并且必须以字母或者下划线开头，按照惯例常量标识符总是大写的，自己定义的常量是严格区分大小写的<br>    define（’MY_CITY’,’上海’）<br>    defined（）函数来检查是否定义了某个常量<br>3.常量和变量的区别<br>    1）常量前没有美元符号（$）<br>    2）常量只能用define（）函数来定义，不能通过赋值语句<br>    3）常量可以不用理会变量范围的规则而在任何地方定义和使用<br>4）常量一旦被定义就不能被重新定义或者取消定义<br>5）常量的值只能是bool，int，float，string类型<br>4.预定义常量<br>    预先定义好的常量，就是程序中可以直接使用来完成一些特殊功能</p>
+<pre><code>预定义常量说白了就是PHP内核已经帮我们定义好了的常量
+查看预定义常量print_r(get_defined_constants());右击查看网页源码。
+其中有的预定义常量是__***__形式的，这些预定义常量我们又叫他魔术常量，代码所在的位置不同，它的值也是不同的，所以他叫魔术常量。
+</code></pre><p>注意：可以在<a href="http://www.php.net" target="_blank" rel="noopener">www.php.net</a> 中查看php手册。<br>5.八个常用的魔术常量<br>    相关手册内容地址：<a href="http://php.net/manual/zh/language.constants.predefined.php" target="_blank" rel="noopener">http://php.net/manual/zh/language.constants.predefined.php</a></p>
+<p>注意：预定义常量是不区分大小写的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法—变量/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/PHP基本语法—变量/" itemprop="url">PHP基本语法—变量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:46:20+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第二章PHP基本语法——变量<br>1.变量<br>    变量是用于临时（只有在我们的程序运行过程中才会存在）存储（数据）的容器，变量在任何语言中都是核心地位。另外PHP脚本语言是一种弱类语言，和其他语言不同的是变量或者常量的数据类型由程序的上下文决定。<br>2.变量的声明：<br>    PHP的特性之一就是他不要求在使用变量前声明变量，当第一次给一个变量赋值时，你才创建了变量，变量用于储值比如数字、文本字符串或者数组。一旦设置了某个变量，我们就可以在脚本中重复使用它。PHP中变量必须使用一个美元符号$后面跟着变量名来表示，使用赋值操作符（=）给一个变量赋值。<br>3.声明：就是事先告知，通知！<br>    注意：PHP程序中，使用变量前不需要声明，而其他语言是需要声明的，比如Java、c语言<br>4.变量的释放/变量的销毁：<br>    unset（$变量的名称）函数释放指定变量<br>    $and1=1;<br>        unset($and1);//销毁$and变量<br>        echo $and1;//提示出错，因为变量已经被销毁了！<br>5.示例：<br>    现实生活中我们在家里会用柜子来存放我们的物品，那么我们在编程语言中是没有物品这个概念的，只有数据，这些数据就是存放在我们的变量里的。<br>6.变量的命名：<br>1）变量名是严格区分大小写的。<br>   $name   $name=1<br>   $NAME  $NAME=1<br>   $Name  $Name=1<br>2)变量名由字母或者下划线开头，后面可以连接任意数量的字母，数字，或者下划线。<br>注意：变量名的标识符一定不要以数字开头，中间不可以使用空白字符，不能使用点分开。<br>总结：变量名只能包含字母、数字、下划线，并且必须以字母或者下划线开头。<br>3）PHP中有一些标识符是系统定义的，也称为关键字，是PHP语言的组成部分，因此不能使用他们中的任何一个作为常量函数名或类名。但是和其他语言不同的是可以在PHP中作为变量名称使用，不过这样容易混淆，所以建议还是不要使用PHP的关键字作为变量名称。<br>7.可变变量<br>    一个变量的名字可以动态的设置和使用<br>    $name=‘shanghai’；<br>    $$name=’beijing’;<br>    echo $name<br>    echo $shanghai<br>8.变量引用赋值<br>    引用赋值可以简单的理解为给变量起个别名。<br>    $a=1000;<br>    /<em>$b=$a;//相当于把$a的值，复制一份再赋值给$b这个变量</em>/<br>    $b=&amp;$a;//相当于给$a起了一个别名，操作其中任何一个，都会影响到另外一个变量的值!<br>    $b=20;<br>    echo $a;<br>9.变量类型<br>概述：变量类型是指保存在该变量中的数据类型，在计算机编程语言世界中每个数据都有它的类型。<br>    具有相同类型的数据才能被彼此相互操作。<br>    在强类型的语言中，例如C语言，变量要首先指定类型，然后才可以存储对应指定的数据，就好比现实生活中在制作一个柜子之前要决定好这个柜子是什么类型的柜子，是书柜只能存书，是衣柜只能存衣服。<br>    但是PHP是一种弱类型的语言，和其他语言不同的是，变量或者常量的数据类型由程序的上下文决定，不需要事先声明变量的类型。一个柜子你要是存书就是书柜，要是存衣服就是衣柜，根本不需要事先声明这是书柜还是衣柜，一切根据实际需求使用即可。<br>10.变量类型的简介<br>    使用var_dump（变量名）可以输出变量的类型<br>    1）bool (布尔型)<br>       $a=true;<br>        var_dump($a);<br>    往变量里面存true或者false，那么这个变量就是布尔型了，<br>    布尔型是最简单的类型，布尔型表达了true或false，即真或假，以下值被认为是false，其他的值都被认为ture：（布尔型false，0， 浮点型0.0， 空白字符串和字符串0， 没有成员的数组，NULL注意：空白字符是指’’或者””并不是空格符）<br>     2）int (整型)<br>        往变量里面存整数，那么这个变量就是整型变量。<br>     3）float (浮点型，也称double)<br>        往变量里面存小数，那么这个变量就是浮点型数据。<br>         $a=1.1;<br>         var_dump($a);<br>     4）string (字符串)<br>        字符串就是一系列的字符组成串在一起！<br>     5）NULL<br>       null表示一个变量没有值，表示空<br>       将变量直接赋值为null<br>       声明的变量尚未被赋值<br>       被unset函数销毁的变量<br>       $a=1111;<br>       unset($a);<br>       var_dump($a);<br>11.单引号：<br>       $b=1;<br>       $a=’test$bdwqd\’wqdqw’;<br>       var_dump($a);<br>       echo $a;<br>       在定义一些简单的字符串的时候使用单引号这种方法效率比较高，但是单引号中不能包含单引号。如果要单引号中包含另一个单引号需要（\）反斜杠来转义<br>    注意：单引号字符串出现的变量不会被变量替代，即PHP不会解析单引号中的变量，因此在定义简单字符串时，使用单引号效率会更高，因此没有特别要求，应用单引号定义字符串。<br>12.双引号<br>$b=100;<br>$a=’te$bst……’;<br>$a=”te{$b}st……”;{}的作用是保证$b能够正常被PHP解析，否则$b<br>会变成变量$bst..,程序会因此报错，因为此变量并不存在<br>var_dump($a);<br>echo $a;<br>    双引号中的变量名会被变量值所代替，即PHP会解析双引号之间的变量，同样双引号中不能放双引号，如果要放需要（\）来转义。<br>13.定界符<br>        $b=200;<br>        $a=&lt;&lt;&lt;www<br>        dwqdqwdwq{$b}dwqdqdqdqdwqdwqcwcfwefwefcscwecwefwdqwdqdefwefwefewfwe<br>        www;<br>        var_dump($a);<br>    &lt;&lt;&lt;之后提供一个标识符开始，然后是字符串的内容，最后同样的标识符表示结束，<br>    注意：结束标识符之后必须接（;）不可以使用其他的任何字符，标识符的命名规则，字母数字下划线，并且不能以数字开始。定界符也会解析其中的变量。定界符的优点是，他可以包含单引号，和双引号。<br>14.变量类型相互转换<br>     这些都是程序运行中不太可控的部分所以在编写代码时最好不要涉及!<br>强制转换:<br>        $a=’上海’;<br>        $b=(int)$a;<br>        var_dump($a);<br>        var_dump($b);<br>注意;强制转换并不会改变变量本身。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP基本语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/PHP基本语法/" itemprop="url">PHP基本语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:44:31+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第二章PHP基本语法<br>1.初识PHP脚本程序<br>1）语法就是PHP官方规定的一系列使用PHP的规则。<br>2.PHP语言标记<br>1）开始：&lt;?php<br>       结束：?&gt;<br>2）&lt;?php?&gt;这之间就表示进入PHP模式，在开始和结束标记之外的内容都会被PHP解析器忽略。<br>3）可直接嵌入到HTML代码中的任意地方，在一个HTML文档中可以嵌入任意多个PHP标记，但要遵循HTML语言规则，注意文件后缀为.php文件可以在HTML代码中嵌入PHP标记，而后缀为.html的文件则不可以嵌入PHP标记。<br>4）文件末尾PHP代码段结束标记可以不要，在一些情况下省略掉更好<br>5)我们的页面最终是通过HTML，css，js来展示出一个绚丽的界面<br>3.指令分隔符“;”<br>1）PHP语句分为两种：一种是在程序中使用结构定义语句，另一种是在程序中使用功能执行语句，其中前者结尾不需要使用分号，后者必须使用分号结尾<br>2）结束标志?&gt;就隐含一个分号，所以PHP代码的最后一行可以不用加“;”不加“;”时要确保PHP语句中的最后一行要有结束标记。<br>3）在一些PHP语句的结尾要加上“;”，表示一句话的结束，否则会报错。<br>4.显示乱码<br>一般是因为代码编码格式与项目编码格式不相符引起的，将代码全选剪切，调整好项目的编码格式粘贴即可<br>5.注释<br>    /<em>这是一个多行注释，可以有多行文字</em>/<br>    //这是单行注释<br>    注释不会被PHP解析器所解析，他能帮助我们对代码进行注释方便他人也方便我们对代码的理解。<br>6.遇到空白的处理<br>    空白符包括空格、tab制表符、换行，这些在PHP中都是无关紧要的（注意都是英文输入法下输入的），可以将一个语句展开成任意行，或者紧缩在一行，空格与空行的合理运用可以增强代码的清晰与可读性，如果运用不合理反而会对阅读产生负担</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/31/PHP学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XiaoBlockhead">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XuChao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/PHP学习笔记/" itemprop="url">PHP学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T18:39:17+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">自学笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一章php基础篇<br>动态网站的理解：<br>      动态网站是指能对界面进行不定期的更新，而不是页面能够动，HTML开发的是静态网站，php开发的是动态网站，HTML文件可以用浏览器直接打开，而php需要PHP服务器来进行编译，才能通过浏览器打开<br>url地址：<br>格式：<a href="http://host[:potr][abs_path]" target="_blank" rel="noopener">http://host[:potr][abs_path]</a><br>理解：http://表示要通过http协议来定位网络资源<br>      Host表示合法的Internet主机域名或者IP地址<br>      Port指定一个端口号，可以省略默认为80<br>      Abs_path被请求资源的位置<br>      []里面的内容可有可无，可以省略。<br>Dns服务器：<br>将域名和IP地址联系到一起，通过域名找到对应的IP地址，来实现访问<br>第一章PHP运行环境安装<br>1.需要安装的软件<br>1）web服务器<br>服务器名称：Apache服务器<br>软件安装地址：<a href="http://www.apache.org" target="_blank" rel="noopener">www.apache.org</a><br>2）PHP应用服务器<br>作用：解释执行编写的PHP程序<br>3）数据库管理系统/数据库服务器<br>服务器名称：MySQL<br>提示：Apache+PHP+MySQL是PHP比较流行的生存环境<br>2.wamp集成环境的安装<br>1）软件名称：wampserver<br>2）安装地址：<a href="http://www.wampserver.com" target="_blank" rel="noopener">www.wampserver.com</a><br>3）此集成环境包含Apache，PHP，MySQL<br>3.检验开发环境<br>通过浏览器访问127.0.0.1/localhost来检验环境安装是否正确<br>4.站点根目录<br>网站的默认存储位置就是站点根目录<br>5.根目录<br>1）根目录的默认位置为  安装盘符:\wamp\www<br>2）网络位置为<a href="http://localhost:80/(“:80”可省略，单独的一个“/”表示访问资源的根目录)" target="_blank" rel="noopener">http://localhost:80/(“:80”可省略，单独的一个“/”表示访问资源的根目录)</a><br>6.默认访问位置<br>访问某个文件夹会默认访问这个文件夹下的index.php/index.html文件，当文件夹下同时包含php和HTML文件时，wamp集成环境会优先输出PHP文件。<br>注意：网站的代码，图片以及相关文件夹应该放在站点根目录下，放到其他位置是无效的。</p>
+<p>7.命名格式<br>PHP文件的命名格式为***.php<br>第一章PHP基础增强篇<br>1.编辑器安装<br>1）编辑器名称：Zendstudio<br>2）可选择汉化，但不建议汉化，汉化可能会影响部分功能的使用<br>3）安装时需要插入破解插件，然后输入特定的激活码完成激活使用<br>4）默认安装到C盘时可通过剪切，粘贴来完成位置的变换<br>2.编辑器的汉化<br>1）把需要的汉化包解压<br>2）打开zendstudio找到Help<br>3）左键单击Install New Software<br>4）点开add…左键单击Name后的local…选择汉化包的文件位置（juno），最后点击OK<br>5）在弹出的窗口中勾选Babel Language Packs in Chinese（Simplified），点击Next<br>6）等待Zendstudio重启后完成汉化<br>3.编辑器的配置<br>1）工作区的设置（设置代码存放的位置）<br>左键单击 file/文件，找到Switch Workspace/交换工作空间，点击Other…/其他，来完成位置的替换<br>2）红色的波浪线提示代码错误<br>3）字体的设置<br>左键单击Windows/窗口，点击Preferences/首选项，展开General/常规选项，找到Appearance/外观，点击Colors and Fonts找到View and Editor Folders/视图和编辑器字体，进行设置。<br>4）右击Close Project/关闭项目来关闭项目，此时项目无法编辑，再次右击单击Open Project打开项目来编辑</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+<div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/30/动态背景、文档结束标签的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -506,129 +1651,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://XiaoBlockhead.github.io.git/2019/03/27/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="XiaoBlockhead">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XuChao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/hello-world/" itemprop="url">Welcome to XuChao’s Blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T23:33:05+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>欢迎来到我的博客，这是我成功发布的第一个博客，青春为自己奋斗，加油！！！！！</p>
-<p>第一份胜利的果实来之不易啊，现在是北京时间05:35分</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-<div>
-  
-</div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -675,7 +1697,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -686,7 +1708,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -697,7 +1719,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tages/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
